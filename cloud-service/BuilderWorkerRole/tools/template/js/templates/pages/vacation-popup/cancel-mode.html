@@ -1,0 +1,11 @@
+<h2>
+	<%= vacationTypeName %> by <%= employeeName %> from <%=planned_start_date%> to <%=planned_end_date%>
+</h2>
+<form>
+	<label id="resolution-label" class="hint--error hint--bottom" data-hint='<%=getString("Page.Vacation.Fields.Resolution.ValidationMessage")%>'><%=getString("Page.Vacation.Fields.Resolution")%></label>
+	<textarea name="resolution" required></textarea>
+	<ul class="actions">
+		<li><button class="command cancel"><%=getString("Buttons.CancelText")%></button></li>
+		<li><button class="command save"><%=getString("Buttons.OkText")%></button></li>
+	</ul>
+</form>

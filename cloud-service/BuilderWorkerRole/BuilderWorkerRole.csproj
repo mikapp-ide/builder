@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39ECC55B-C203-4C51-B022-DE97358AB084}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BuilderWorkerRole</RootNamespace>
+    <AssemblyName>BuilderWorkerRole</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RoleType>Worker</RoleType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.8.1\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.8.1\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceModel" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuilderService.cs" />
+    <Compile Include="Models\ProjectInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkerRole.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="tools\template\css\index.less" />
+    <None Include="tools\template\MikaTemplate.jsproj" />
+    <None Include="tools\template\MikaTemplate_TemporaryKey.pfx" />
+    <None Include="tools\template\package.appxmanifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="tools\template\packages.config" />
+    <None Include="tools\template\packages\MarkedUp.0.6.7\lib\winrt45\MarkedUp.winmd" />
+    <None Include="tools\template\packages\MarkedUp.0.6.7\MarkedUp.0.6.7.nupkg" />
+    <None Include="tools\template\packages\MarkedUp.0.6.7\tools\install.ps1" />
+    <None Include="tools\template\packages\MarkedUp.0.6.7\tools\uninstall.ps1" />
+    <None Include="tools\template\packages\repositories.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tools\packaging\makeappx.exe" />
+    <Content Include="tools\packaging\makecert.exe" />
+    <Content Include="tools\template\img\badge-logo.scale-100.png" />
+    <Content Include="tools\template\img\badge-logo.scale-140.png" />
+    <Content Include="tools\template\img\badge-logo.scale-180.png" />
+    <Content Include="tools\template\img\connect-to-eventbrite.png" />
+    <Content Include="tools\template\img\eventbrite-logo-white.png" />
+    <Content Include="tools\template\img\logo.scale-100.png" />
+    <Content Include="tools\template\img\logo.scale-140.png" />
+    <Content Include="tools\template\img\logo.scale-180.png" />
+    <Content Include="tools\template\img\logo.scale-80.png" />
+    <Content Include="tools\template\img\no-thumbnail.png" />
+    <Content Include="tools\template\img\promo-targetsize-414.png" />
+    <Content Include="tools\template\img\promo-targetsize-414x468.png" />
+    <Content Include="tools\template\img\promo-targetsize-558x756.png" />
+    <Content Include="tools\template\img\promo-targetsize-846x468.png" />
+    <Content Include="tools\template\img\small-logo.scale-100.png" />
+    <Content Include="tools\template\img\small-logo.scale-140.png" />
+    <Content Include="tools\template\img\small-logo.scale-180.png" />
+    <Content Include="tools\template\img\small-logo.scale-80.png" />
+    <Content Include="tools\template\img\small-logo.target-16.png" />
+    <Content Include="tools\template\img\small-logo.target-256.png" />
+    <Content Include="tools\template\img\small-logo.target-32.png" />
+    <Content Include="tools\template\img\small-logo.target-48.png" />
+    <Content Include="tools\template\img\splashscreen.scale-100.png" />
+    <Content Include="tools\template\img\splashscreen.scale-140.png" />
+    <Content Include="tools\template\img\splashscreen.scale-180.png" />
+    <Content Include="tools\template\img\store-logo.scale-100.png" />
+    <Content Include="tools\template\img\store-logo.scale-140.png" />
+    <Content Include="tools\template\img\store-logo.scale-180.png" />
+    <Content Include="tools\template\img\welcome-logo.png" />
+    <Content Include="tools\template\img\wide-logo.scale-100.png" />
+    <Content Include="tools\template\img\wide-logo.scale-140.png" />
+    <Content Include="tools\template\img\wide-logo.scale-180.png" />
+    <Content Include="tools\template\img\wide-logo.scale-80.png" />
+    <Content Include="tools\template\index.html" />
+    <Content Include="tools\template\js\app.js" />
+    <Content Include="tools\template\js\app\config\config.js" />
+    <Content Include="tools\template\js\app\config\localization\nls\en-EN\labels.js" />
+    <Content Include="tools\template\js\app\config\localization\nls\labels.js" />
+    <Content Include="tools\template\js\libs\less-1.3.3.min.js" />
+    <Content Include="tools\template\js\libs\lodash.min.js" />
+    <Content Include="tools\template\js\libs\requirejs\plugins\i18n.js" />
+    <Content Include="tools\template\js\libs\requirejs\plugins\text.js" />
+    <Content Include="tools\template\js\libs\requirejs\require.js" />
+    <Content Include="tools\template\js\templates\confirmation-popup.html" />
+    <Content Include="tools\template\js\templates\pages\login\layout.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-list\layout.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-list\vacation-list-filter.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-list\vacation-requests-grid.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-popup\add-edit-mode.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-popup\approve-mode.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-popup\arrive-mode.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-popup\cancel-mode.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-popup\layout.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-popup\leave-mode.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-popup\reject-mode.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-popup\submit-ill-mode.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-popup\submit-vac-mode.html" />
+    <Content Include="tools\template\js\templates\pages\vacation-popup\view-mode.html" />
+    <Content Include="tools\template\js\templates\paging.html" />
+    <Content Include="tools\template\MikaTemplate.sln" />
+    <Content Include="tools\template\packages\MarkedUp.0.6.7\tools\MarkedUp.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

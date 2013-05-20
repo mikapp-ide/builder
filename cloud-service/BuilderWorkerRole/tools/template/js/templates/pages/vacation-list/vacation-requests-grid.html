@@ -1,0 +1,41 @@
+<table border="0" cellspacing="0">
+	<tr>
+		<th width="60px"><%=getString("Page.VacationList.Headers.Actions")%></th>
+		<th><%=getString("Page.VacationList.Headers.Employee")%></th>
+		<th><%=getString("Page.VacationList.Headers.Approver")%></th>
+		<th><%=getString("Page.VacationList.Headers.VacationType")%></th>
+		<th><%=getString("Page.VacationList.Headers.PlannedStartDate")%></th>
+		<th><%=getString("Page.VacationList.Headers.PlannedEndDate")%></th>
+		<th><%=getString("Page.VacationList.Headers.ActualStartDate")%></th>
+		<th><%=getString("Page.VacationList.Headers.ActualEndDate")%></th>
+		<th><%=getString("Page.VacationList.Headers.Status")%></th>
+		<th width="140px"><%=getString("Page.VacationList.Headers.MedicalCertificate")%></th>
+	</tr>
+	<% var i, item; %>
+	<% for (i = 0; i < items.length; i++) { %>
+	<%  item = items[i] %>
+	<tr id="<%=item.id%>" class="data-row">
+		<td>
+			<button class="command-icon view" title='<%=getString("Page.VacationList.Actions.ViewHint")%>'>&#xe002;</button>
+			<% if(item.isEditable) { %>
+			<button class="command-icon edit" title='<%=getString("Page.VacationList.Actions.EditHint")%>'>&#xe000;</button>
+			<% } %>
+			<!--<% if(item.isRemovable) { %>
+			<button class="command-icon delete" title='<%=getString("Page.VacationList.Actions.DeleteHint")%>'></button>
+			<% } %>-->
+			<% if(item.isRemovable) { %>
+				<button class="command-icon delete">&#xe003;</button>
+			<% } %>
+		</td>
+		<td><%=item.employee%></td>
+		<td><%=item.approver%></td>
+		<td><%=item.vacationType%></td>
+		<td><%=item.plannedStartDate%></td>
+		<td><%=item.plannedEndDate%></td>
+		<td><%=item.actualStartDate%></td>
+		<td><%=item.actualEndDate%></td>
+		<td><%=item.status%></td>
+		<td><%=item.medicalCertificateStatus%></td>
+	</tr>
+	<% } %>
+</table>

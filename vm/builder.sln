@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderService", "BuilderService\BuilderService.csproj", "{39ECC55B-C203-4C51-B022-DE97358AB084}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderServiceClient", "BuilderServiceClient\BuilderServiceClient.csproj", "{49DB3B80-3472-4859-B8CD-4CC573BBB6AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51E6CCA9-3566-4936-9544-359D9EF3CD93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E6CCA9-3566-4936-9544-359D9EF3CD93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E6CCA9-3566-4936-9544-359D9EF3CD93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E6CCA9-3566-4936-9544-359D9EF3CD93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39ECC55B-C203-4C51-B022-DE97358AB084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39ECC55B-C203-4C51-B022-DE97358AB084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39ECC55B-C203-4C51-B022-DE97358AB084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39ECC55B-C203-4C51-B022-DE97358AB084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49DB3B80-3472-4859-B8CD-4CC573BBB6AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49DB3B80-3472-4859-B8CD-4CC573BBB6AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49DB3B80-3472-4859-B8CD-4CC573BBB6AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49DB3B80-3472-4859-B8CD-4CC573BBB6AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

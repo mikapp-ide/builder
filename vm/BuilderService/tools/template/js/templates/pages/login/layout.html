@@ -1,0 +1,21 @@
+<article class="page login-page">
+	<header>
+		<div class="center-background"><%=getString("App.Name")%></div>
+	</header>
+	<section role="main">
+		<div class="main-left">
+			<form id="login-form">
+				<label for="pmc-login"><%=getString("Page.Login.UserNameLabel")%></label>
+				<input name="pmc-login" type="text" value="<%=userName%>" required/>
+				<label for="pmc-password"><%=getString("Page.Login.UserPasswordLabel")%></label>
+				<input name="pmc-password" type="password" required/>
+				<div>
+					<span class="error-message"><%=getString("Page.Login.Errors.UnableToLogin")%></span>
+					<img class="loading" src="/img/ajax-loader-16.gif" />
+					<input class="command" type="submit" title='<%=getString("Page.Login.SubmitButtonHint")%>' value='<%=getString("Page.Login.SubmitButtonText")%>' />
+				</div>
+			</form>
+		</div>
+		<div class="main-center"><%=getString("Page.Login.DisclaimerText")%></div>
+	</section>
+</article>

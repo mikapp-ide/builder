@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="26342AlZa.MikaTemplate" Version="1.0.0.0" Publisher="CN=Aleh" />
+  <Properties>
+    <DisplayName>MikaTemplate_DisplayName</DisplayName>
+    <PublisherDisplayName>AlZa</PublisherDisplayName>
+    <Logo>img\store-logo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" StartPage="index.html">
+      <VisualElements DisplayName="MikaTemplate_DisplayName" Logo="img\logo.png" SmallLogo="img\small-logo.png" Description="MikaTemplate_Description" ForegroundText="light" BackgroundColor="#000000">
+        <DefaultTile ShowName="logoOnly" ShortName="Eventy" WideLogo="img\wide-logo.png" />
+        <SplashScreen Image="img\splashscreen.png" BackgroundColor="#000000" />
+        <InitialRotationPreference>
+          <Rotation Preference="portrait" />
+          <Rotation Preference="landscape" />
+          <Rotation Preference="portraitFlipped" />
+          <Rotation Preference="landscapeFlipped" />
+        </InitialRotationPreference>
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.search" />
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>

@@ -1,0 +1,9 @@
+node_modules
+.idea
+bin
+obj
+build
+csx
+rcf
+*.user
+*.suo

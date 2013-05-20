@@ -1,0 +1,141 @@
+﻿define({
+	"root": {
+		"App.Name" : "EPAM Information System",
+
+		"Page.Login.Title": "Login",
+		"Page.Login.UserNameLabel": "PMC login",
+		"Page.Login.UserPasswordLabel": "PMC password",
+		"Page.Login.DisclaimerText": "This system is owned by EPAM Systems. If you are not authorized to access this system, please exit immediately.<br/>"+
+										"Unauthorized access to this system is forbidden by company policies, national, and international laws.	<br/>"+
+										"Unauthorized users are subject to criminal and civil penalties as well as company initiated disciplinary proceedings.<br/>"+
+										"By entering this system you acknowledge that you have authorized access and appropriate level of privilege within the system.",
+		"Page.Login.SubmitButtonText": "Login",
+		"Page.Login.SubmitButtonHint": "Login to EPAM information system",
+
+		"Page.Login.Errors.UnableToLogin": "Unable to login",
+
+		"Page.Common.LogoffButtonText": "Log off",
+		"Page.Common.LogoffButtonHint": "Log off",
+		"Page.Common.LogoffConfirmation": "Are you sure you want to log off?",
+
+		"Page.VacationList.Title": "Vacation List",
+		"Page.VacationList.VacationRequestsTab": "Vacation Requests",
+		"Page.VacationList.VacationBalanceTab": "Vacation Balance",
+		"Page.VacationList.AddNewVacationButtonText": "Add new vacation",
+
+		"Page.VacationList.Filter.ProjectLabel": "Project",
+		"Page.VacationList.Filter.Project.All": "All",
+		"Page.VacationList.Filter.Project.MyProjects": "My projects",
+
+		"Page.VacationList.Filter.StatusLabel": "Status",
+		"Page.VacationList.Filter.Status.All":"All",
+		"Page.VacationList.Filter.Status.AllOpen": "All open",
+		"Page.VacationList.Filter.Status.Approved":"Approved",
+		"Page.VacationList.Filter.Status.Arrived" : "Arrived",
+		"Page.VacationList.Filter.Status.Cancelled" : "Cancelled",
+		"Page.VacationList.Filter.Status.Closed" : "Closed",
+		"Page.VacationList.Filter.Status.Draft" : "Draft",
+		"Page.VacationList.Filter.Status.InProgress" : "In progress",
+		"Page.VacationList.Filter.Status.Rejected" : "Rejected",
+		"Page.VacationList.Filter.Status.Submitted" : "Submitted",
+
+		"Page.VacationList.Filter.EmployeesLabel": "Employees",
+		"Page.VacationList.Filter.Employees.AllEmployees":"All employees",
+		"Page.VacationList.Filter.Employees.Me":"Me",
+		"Page.VacationList.Filter.Employees.MySubordinates":"My subordinates",
+
+		"Page.VacationList.Headers.Actions": "Actions",
+		"Page.VacationList.Headers.Employee" : "Employee",
+		"Page.VacationList.Headers.Approver" : "Approver",
+		"Page.VacationList.Headers.VacationType" : "Vacation type",
+		"Page.VacationList.Headers.PlannedStartDate" : "Planned start date",
+		"Page.VacationList.Headers.PlannedEndDate" : "Planned end date",
+		"Page.VacationList.Headers.ActualStartDate" : "Actual start date",
+		"Page.VacationList.Headers.ActualEndDate" : "Actual end date",
+		"Page.VacationList.Headers.Status" : "Status",
+		"Page.VacationList.Headers.MedicalCertificate" : "Medical Certificate",
+
+		"Page.VacationList.Actions.ViewHint": "View vacation details",
+		"Page.VacationList.Actions.EditHint": "Edit vacation",
+		"Page.VacationList.Actions.DeleteHint": "Delete vacation",
+
+		"Page.VacationList.DeleteConfirmation": "Are you sure you want to delete selected item?",
+
+		"Page.VacationList.Errors.UnableToLoadVacationList": "We were unable to load your vacation requests. Please, try again later.",
+		"Page.VacationList.Errors.UnableToDeleteVacation": "We were unable to delete your vacation. Please, try again later.",
+
+		"Page.Vacation.EditTitle": "Edit Vacation Request #",
+		"Page.Vacation.NewTitle": "New Vacation Request",
+		"Page.Vacation.ViewTitle": "View Vacation Request #",
+		"Page.Vacation.CancelTitle": "Cancel Vacation Request #",
+		"Page.Vacation.SubmitTitle": "Submit Vacation Request #",
+		"Page.Vacation.ApproveTitle": "Approve Vacation Request #",
+		"Page.Vacation.RejectTitle": "Reject Vacation Request #",
+		"Page.Vacation.LeaveTitle": "Leave For Vacation Request #",
+		"Page.Vacation.ArriveTitle": "Arrive From Vacation Request #",
+
+		"Page.Vacation.VacationDescriptionTemplate": "{vacationTypeName} by {employeeName} from {start_date} to {end_date}",
+		"Page.Vacation.VacationTimestampTemplate": "{creator} on {date}",
+
+		"Page.Vacation.Fields.Status" : "Status",
+		"Page.Vacation.Fields.Employee" : "Employee",
+		"Page.Vacation.Fields.Employee.ValidationMessage" : "Employee name is required",
+		"Page.Vacation.Fields.PlannedStartDate" : "Planned start date",
+		"Page.Vacation.Fields.PlannedStartDate.ValidationMessage" : "Valid date is required",
+		"Page.Vacation.Fields.ActualStartDate" : "Actual start date",
+		"Page.Vacation.Fields.Approver" : "Approver",
+		"Page.Vacation.Fields.Approver.ValidationMessage" : "Approver is required",
+		"Page.Vacation.Fields.PlannedEndDate" : "Planned end date",
+		"Page.Vacation.Fields.PlannedEndDate.ValidationMessage" : "Valid date is required",
+		"Page.Vacation.Fields.ActualEndDate" : "Actual end date",
+		"Page.Vacation.Fields.VacationType" : "Vacation type",
+		"Page.Vacation.Fields.VacationType.ValidationMessage" : "Vacation type is required",
+		"Page.Vacation.Fields.PlannedDuration" : "Planned duration",
+		"Page.Vacation.Fields.Hours" : "hours",
+		"Page.Vacation.Fields.Days" : "days",
+		"Page.Vacation.Fields.ActualDuration" : "Actual duration",
+		"Page.Vacation.Fields.CreatedBy" : "Created by",
+		"Page.Vacation.Fields.LastUpdatedBy" : "Last updated by",
+		"Page.Vacation.Fields.MedicalCertificateAvailable" : "Medical Certificate available",
+		"Page.Vacation.Fields.Description" : "Description",
+		"Page.Vacation.Fields.Resolution" : "Resolution",
+		"Page.Vacation.Fields.Resolution.ValidationMessage" : "Resolution is required",
+		"Page.Vacation.Fields.None": "(none)",
+		"Page.Vacation.Fields.Status.Draft" : "DRAFT",
+		"Page.Vacation.Fields.WorkflowActions": "Workflow Actions",
+		"Page.Vacation.Fields.SubmitConfirmation": "Confirmed: no objections by project managers/coordinators I work with",
+		"Page.Vacation.Fields.SubmitConfirmation.ValidationMessage": "Please confirm that there are no objections by project managers/coordinators you work with",
+		"Page.Vacation.Fields.MailTo" : "Mail To",
+		"Page.Vacation.Fields.MailTo.Hint" : "Note: * Full e-mail address should be entered;",
+		"Page.Vacation.Fields.Cc" : "Cc",
+		"Page.Vacation.Fields.Comment" : "Comment",
+
+		"Page.Vacation.WorkflowActions.Cancel": "Cancel",
+		"Page.Vacation.WorkflowActions.Submit": "Submit",
+		"Page.Vacation.WorkflowActions.Leave": "Leave",
+		"Page.Vacation.WorkflowActions.MarkArrived": "Mark Arrived",
+		"Page.Vacation.WorkflowActions.Approve": "Approve",
+		"Page.Vacation.WorkflowActions.Reject": "Reject",
+
+		"Page.Vacation.DeleteConfirmation": "Are you sure you want to delete this vacation request?",
+		"Page.Vacation.Errors.UnableToDeleteVacation": "We were unable to delete your vacation. Please, try again later.",
+
+		"Page.Vacation.Errors.Generic": "We were unable to load required data. Please, try again later.",
+		"Page.Vacation.Errors.Save": "We were unable to save your vacation. Please, try again later.",
+		"Page.Vacation.Errors.Cancel": "We were unable to cancel your vacation. Please, try again later.",
+		"Page.Vacation.Errors.Submit": "We were unable to submit your vacation. Please, try again later.",
+		"Page.Vacation.Errors.Approve": "We were unable to approve vacation. Please, try again later.",
+		"Page.Vacation.Errors.Reject": "We were unable to reject vacation. Please, try again later.",
+		"Page.Vacation.Errors.Leave": "We were unable to start vacation. Please, try again later.",
+		"Page.Vacation.Errors.Arrive": "We were unable to close vacation. Please, try again later.",
+
+		"Buttons.YesText": "Yes",
+		"Buttons.CancelText": "Cancel",
+		"Buttons.EditText": "Edit",
+		"Buttons.DeleteText": "Delete",
+		"Buttons.OkText": "Ok",
+		"Buttons.SaveText": "Save",
+
+		"Paging.DisplayTemplate": "{firstIndex}-{lastIndex} of {total}"
+	}
+});

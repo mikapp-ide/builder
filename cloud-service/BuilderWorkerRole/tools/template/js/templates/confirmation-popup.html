@@ -1,0 +1,12 @@
+<section class="popup confirmation-popup" role="alertdialog" aria-describedby="alert-dialog-title" tabindex="-1">
+	<div class="content">
+		<p id="alert-dialog-title"><%=title%></p>
+		<br />
+		<div>
+			<% var tabIndex = 2; %>
+			<% Object.keys(buttons).forEach(function(buttonKey){ %>
+				<button class="command" id="<%=buttonKey%>" tabindex="<%=tabIndex++%>"><%=buttons[buttonKey].label%></button>
+			<% });%>
+		</div>
+	</div>
+</section>

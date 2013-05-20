@@ -1,0 +1,95 @@
+<h2><%=title%></h2>
+<form name="vacation-request-form">
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.Status")%></label></td>
+			<td class="status"><%=stateName%></td>
+		</tr>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.Employee")%></label></td>
+			<td>
+				<input name="employee-name" disabled type="text" value="<%= employeeName %>" />
+			</td>
+			<td width="0px"><span id="employee-name-error-holder" class="hint--error hint--right hint--always" data-hint='<%=getString("Page.Vacation.Fields.Employee.ValidationMessage")%>'></span></td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.PlannedStartDate")%></label></td>
+			<td>
+				<input name="planned-start-date" required class="date-input" type="text" value="<%=planned_start_date%>" />
+			</td>
+			<td width="0px"><span id="planned-start-date-error-holder" class="hint--error hint--right hint--always" data-hint='<%=getString("Page.Vacation.Fields.PlannedStartDate.ValidationMessage")%>'></span></td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.ActualStartDate")%></label></td>
+			<td><input name="actual-start-date" class="date-input" type="text" value="" disabled/></td>
+		</tr>
+		<tr>
+			<td class="label"><label for="approver"><%=getString("Page.Vacation.Fields.Approver")%></label></td>
+			<td>
+				<select name="approver">
+					<% var i, length, item; %>
+					<% for(i = 0, length = approvers.length; i < length; i++) { %>
+					<% item = approvers[i]; %>
+						<option <%= item.selected ? "selected" : "" %> value="<%=item.key%>"><%= item.value %></option>
+					<% } %>
+				</select>
+			</td>
+			<td><span id="approver-error-holder" class="hint--error hint--right hint--always" data-hint='<%=getString("Page.Vacation.Fields.Approver.ValidationMessage")%>'></span></td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.PlannedEndDate")%></label></td>
+			<td><input name="planned-end-date" class="date-input" type="text" value="<%=planned_end_date%>" /></td>
+			<td width="0px"><span id="planned-end-date-error-holder" class="hint--error hint--right hint--always" data-hint='<%=getString("Page.Vacation.Fields.PlannedEndDate.ValidationMessage")%>'></span></td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.ActualEndDate")%></label></td>
+			<td><input name="actual-end-date" class="date-input" type="text" value="" disabled /></td>
+		</tr>
+		<tr>
+			<td class="label"><label for="vacation-type"><%=getString("Page.Vacation.Fields.VacationType")%></label></td>
+			<td>
+				<select id="vacation-type" name="vacation-type">
+					<% var i, length, item; %>
+					<% for(i = 0, length = vacationTypes.length; i < length; i++) { %>
+					<% item = vacationTypes[i]; %>
+						<option <%= item.selected ? "selected" : "" %> value="<%=item.key%>"><%= item.value %></option>
+					<% } %>
+				</select>
+			</td>
+			<td><span id="vacation-type-error-holder" class="hint--error hint--right hint--always" data-hint='<%=getString("Page.Vacation.Fields.VacationType.ValidationMessage")%>'></span></td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.PlannedDuration")%></label></td>
+			<td>
+				<input id="planned-duration" name="planned-duration" disabled type="text" class="integer" value="<%=planned_duration%>">
+				<label><input name="planned-duration-type" type="radio" value="days" <%= plannedDurationType === 'days' ? 'checked': '' %>> <%=getString("Page.Vacation.Fields.Days")%></label>
+				<label><input name="planned-duration-type" type="radio" value="hours" <%= plannedDurationType === 'hours' ? 'checked': '' %>> <%=getString("Page.Vacation.Fields.Hours")%></label>
+			</td>
+			<td></td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.ActualDuration")%></label></td>
+			<td>
+				<input id="actual-duration" disabled class="integer" type="text">
+				<label><input name="actual-duration" disabled <%= actualDurationType === 'days' ? 'checked': '' %> type="radio"> <%=getString("Page.Vacation.Fields.Days")%></label>
+				<label><input name="actual-duration" disabled <%= actualDurationType === 'hours' ? 'checked': '' %> type="radio"> <%=getString("Page.Vacation.Fields.Hours")%></label>
+			</td>
+		</tr>
+		<% if(createdBy !== null) { %>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.CreatedBy")%></label></td>
+			<td colspan="7"><input disabled type="text" value="<%= createdBy %>" /></td>
+		</tr>
+		<% } %>
+		<% if(updatedBy !== null) { %>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.LastUpdatedBy")%></label></td>
+			<td colspan="7"><input disabled type="text" value="<%= updatedBy %>" /></td>
+		</tr>
+		<% } %>
+		<% if(displayMedicalCertificate) { %>
+		<tr>
+			<td></td>
+			<td colspan="2" class="medical-label" style="text-align: left"><input name="medCertificate" type="checkbox" <%= medicalCertificateStatus ? "checked" : ""%> /> <label><%=getString("Page.Vacation.Fields.MedicalCertificateAvailable")%></label></td>
+		</tr>
+		<% } %>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.Description")%></label></td>
+			<td colspan="7">
+				<textarea name="description"><%= description %></textarea>
+			</td>
+		</tr>
+	</table>
+	<ul class="actions">
+		<li><button class="command cancel"><%=getString("Buttons.CancelText")%></button></li>
+		<li><button class="command save"><%=getString("Buttons.SaveText")%></button></li>
+	</ul>
+</form>

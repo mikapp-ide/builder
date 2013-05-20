@@ -1,0 +1,35 @@
+<h2>
+	<%= vacationTypeName %> by <%= employeeName %> from <%=planned_start_date%> to <%=planned_end_date%>
+</h2>
+<form>
+	<table cellpadding="0" cellspacing="0">
+		<% if(displayMedicalCertificate) { %>
+		<tr>
+			<td style="width:170px;" class="label"><label><%=getString("Page.Vacation.Fields.MedicalCertificateAvailable")%></label></td>
+			<td><input name="medicalCertificate" type="checkbox" checked disabled /> </td>
+		</tr>
+		<% } %>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.MailTo")%></label></td>
+			<td><input name="mailTo" type="text" value="<%= emails %>"/></td>
+		</tr>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.Cc")%></label></td>
+			<td><input name="ccTo" type="text" value=""/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="note"><%=getString("Page.Vacation.Fields.MailTo.Hint")%></td>
+		</tr>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.Comment")%></label></td>
+			<td>
+				<textarea spellcheck="true" name="comment"></textarea>
+			</td>
+		</tr>
+	</table>
+	<ul class="actions">
+		<li><button class="command cancel"><%=getString("Buttons.CancelText")%></button></li>
+		<li><button class="command save"><%=getString("Buttons.OkText")%></button></li>
+	</ul>
+</form>

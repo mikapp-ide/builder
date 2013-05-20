@@ -1,0 +1,93 @@
+<h2>
+	<%= vacationTypeName %> by <%= employeeName %> from <%=planned_start_date%> to <%=planned_end_date%>
+</h2>
+<form name="vacation-request-form">
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.Status")%></label></td>
+			<td class="status"><%=stateName%></td>
+			<% if(workflowActions && workflowActions.length > 0) { %>
+			<td><label><%=getString("Page.Vacation.Fields.WorkflowActions")%>: </label></td>
+			<td colspan="3">
+				<% var i, length, item; %>
+				<% for(i = 0, length = workflowActions.length; i < length; i++) { %>
+				<% item = workflowActions[i]; %>
+					<button id="<%=item.key%>" class="workflow-action"><%= item.value %></button>
+				<% } %>
+			</td>
+			<% } %>
+		</tr>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.Employee")%></label></td>
+			<td>
+				<input disabled type="text"value="<%= employeeName %>" />
+			</td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.PlannedStartDate")%></label></td>
+			<td>
+				<input disabled class="date-input" type="text" value="<%=planned_start_date%>" />
+			</td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.ActualStartDate")%></label></td>
+			<td><input disabled class="date-input" type="text" value="<%=actual_start_date%>"/></td>
+		</tr>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.Approver")%></label></td>
+			<td>
+				<input disabled type="text" value="<%=approverName %>" />
+			</td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.PlannedEndDate")%></label></td>
+			<td><input disabled class="date-input" type="text" value="<%=planned_end_date%>" /></td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.ActualEndDate")%></label></td>
+			<td><input disabled class="date-input" type="text" value="<%=actual_end_date%>" /></td>
+		</tr>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.VacationType")%></label></td>
+			<td>
+				<input disabled type="text"value="<%= vacationTypeName %>" />
+			</td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.PlannedDuration")%></label></td>
+			<td>
+				<input disabled type="text" class="integer" value="<%= planned_duration %>">
+				<label> <%= plannedDurationType %></label>
+			</td>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.ActualDuration")%></label></td>
+			<td>
+				<input disabled class="integer" type="text" value="<%= actual_duration %>">
+				<label> <%= actualDurationType %></label>
+		</tr>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.CreatedBy")%></label></td>
+			<td colspan="5"><input disabled type="text" value="<%= createdBy %>" /></td>
+		</tr>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.LastUpdatedBy")%></label></td>
+			<td colspan="5"><input disabled type="text" value="<%= updatedBy %>" /></td>
+		</tr>
+		<% if(displayMedicalCertificate) { %>
+		<tr>
+			<td></td>
+			<td colspan="2" class="medical-label" style="text-align: left"><input disabled type="checkbox" <%= medicalCertificateStatus ? "checked" : ""%> /> <label><%=getString("Page.Vacation.Fields.MedicalCertificateAvailable")%></label></td>
+		</tr>
+		<% } %>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.Description")%></label></td>
+			<td colspan="5">
+				<textarea rows="2" disabled><%= description %></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="label"><label><%=getString("Page.Vacation.Fields.Resolution")%></label></td>
+			<td colspan="5">
+				<textarea rows="2" disabled><%= resolution %></textarea>
+			</td>
+		</tr>
+	</table>
+	<ul class="actions">
+		<li><button class="command cancel"><%=getString("Buttons.CancelText")%></button></li>
+		<% if(isRemovable) {%>
+		<li><button class="command delete"><%=getString("Buttons.DeleteText")%></button></li>
+		<% } %>
+		<% if(isEditable) {%>
+		<li><button class="command edit"><%=getString("Buttons.EditText")%></button></li>
+		<% } %>
+	</ul>
+</form>

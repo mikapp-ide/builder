@@ -1,0 +1,30 @@
+<form>
+	<button class="add-new-vacation"><%=getString("Page.VacationList.AddNewVacationButtonText")%></button>
+	<label for="project"><%=getString("Page.VacationList.Filter.ProjectLabel")%></label>
+	<select id="project">
+		<% var length = projects.length, i, project; %>
+		<% for(i = 0; i < length; i++) { %>
+		<% project = projects[i] %>
+			<option <%= project.selected ? "selected" : "" %> value="<%=project.key%>"><%= project.value %></option>
+		<% } %>
+	</select>
+	<label for="state"><%=getString("Page.VacationList.Filter.StatusLabel")%></label>
+	<select id="state">
+		<option selected value="-1"><%=getString("Page.VacationList.Filter.Status.All")%></option>
+		<option value="-2"><%=getString("Page.VacationList.Filter.Status.AllOpen")%></option>
+		<option value="80"><%=getString("Page.VacationList.Filter.Status.Approved")%></option>
+		<option value="134"><%=getString("Page.VacationList.Filter.Status.Arrived")%></option>
+		<option value="113"><%=getString("Page.VacationList.Filter.Status.Cancelled")%></option>
+		<option value="82"><%=getString("Page.VacationList.Filter.Status.Closed")%></option>
+		<option value="114"><%=getString("Page.VacationList.Filter.Status.Draft")%></option>
+		<option value="112"><%=getString("Page.VacationList.Filter.Status.InProgress")%></option>
+		<option value="81"><%=getString("Page.VacationList.Filter.Status.Rejected")%></option>
+		<option value="79"><%=getString("Page.VacationList.Filter.Status.Submitted")%></option>
+	</select>
+	<label for="employees"><%=getString("Page.VacationList.Filter.EmployeesLabel")%></label>
+	<select id="employees">
+		<option value="-1"><%=getString("Page.VacationList.Filter.Employees.AllEmployees")%></option>
+		<option selected value="-3"><%=getString("Page.VacationList.Filter.Employees.Me")%></option>
+		<option value="-2"><%=getString("Page.VacationList.Filter.Employees.MySubordinates")%></option>
+	</select>
+</form>
