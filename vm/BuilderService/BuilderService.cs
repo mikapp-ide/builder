@@ -2,8 +2,10 @@
 using System.Configuration;
 using System.IO;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Execution;
+using Microsoft.Build.Logging;
 using Mikapp.BuilderService.Models;
 using MongoDB.Driver;
 
@@ -12,6 +14,7 @@ namespace Mikapp.BuilderService {
 	[ServiceContract]
 	public interface IBuildService {
 		[OperationContract]
+		[WebGet(UriTemplate = "build/{projectId}")]
 		Stream Build(string projectId);
 	}
 
@@ -37,11 +40,20 @@ namespace Mikapp.BuilderService {
 
 			var buildResult = BuildSolution(string.Format(@"{0}\{1}.sln", destinationFolder, project.Name));
 
-			FileStream packageFile = File.OpenRead(
-				string.Format(@"{0}\AppPackages\{1}_1.0.0.0_x86_Debug.appxupload", destinationFolder, project.Name)
-			);
+			if (buildResult.OverallResult == BuildResultCode.Success) {
 
-			return packageFile;
+				FileStream packageFile = File.OpenRead(
+					string.Format(@"{0}\AppPackages\{1}_1.0.0.0_x86_Debug.appxupload", destinationFolder, project.Name)
+				);
+
+				if (WebOperationContext.Current != null) {
+					WebOperationContext.Current.OutgoingResponse.Headers["Content-Disposition"] = "attachment; filename=package.appxupload";
+				}
+
+				return packageFile;
+			}
+
+			return null;
 		}
 
 		private string CopyTemplateProject(ProjectInfo project) {
@@ -62,7 +74,9 @@ namespace Mikapp.BuilderService {
 					file.Delete();
 				}
 				foreach (DirectoryInfo dir in targetDirectory.GetDirectories("*", SearchOption.AllDirectories)) {
-					dir.Delete(true);
+					if (dir.Exists) {
+						dir.Delete(true);
+					}
 				}
 
 				Directory.CreateDirectory(destinationProjectDir);
@@ -119,16 +133,17 @@ namespace Mikapp.BuilderService {
 		}
 
 		private BuildResult BuildSolution(string pathToSolution) {
-			var pc = new ProjectCollection();
 
-			var globalProperty = new Dictionary<string, string> {
+			var buidlRequest = new BuildRequestData(pathToSolution, new Dictionary<string, string> {
 				{"Configuration", "Debug"},
 				{"Platform", "x86"}
+			}, null, new[] { "Build" }, null);
+
+			var buildParameters = new BuildParameters(new ProjectCollection()) {
+				Loggers = new[] {new ConsoleLogger()}
 			};
 
-			var buidlRequest = new BuildRequestData(pathToSolution, globalProperty, null, new[] { "Build" }, null);
-
-			return BuildManager.DefaultBuildManager.Build(new BuildParameters(pc), buidlRequest);
+			return BuildManager.DefaultBuildManager.Build(buildParameters, buidlRequest);
 		}
 	}
 }
